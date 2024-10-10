@@ -13,7 +13,8 @@ import {verifyPassword, generateToken, getConnectedUser, disconnect, hashPasswor
 
 const app = express();
 
-const PORT = 4000;
+const HOST = '0.0.0.0';
+const PORT = 8000;
 
 const DS_NAME = 'news';
 const MONGO_URL = `mongodb://127.0.0.1:27017/${DS_NAME}?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.2.10`;
@@ -100,6 +101,6 @@ app.get("/logout", async (req, res) => {
     res.redirect("/");   
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, HOST, () => {
     console.log("Server started on port", PORT);
 })
